@@ -1,33 +1,24 @@
-import { Box,  Heading, Image, Text  } from "@chakra-ui/react";
+import React from "react";
+import { Box, Heading, Image, Text, Link } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
 
 const Card = ({ title, description, imageSrc }) => {
   return (
-    <>
-      {/* <HStack>
-        <Box bg='white'>
-        <VStack>
-        <img src={imageSrc}/>
-        </VStack>
-        <VStack p="5" color='black'>
-        <Heading as='h4' size='md'>{title}</Heading>
-        <Text textAlign='left'  >Hekko</Text>
-        </VStack>
-        </Box>
-      </HStack> */}
-      <Box textAlign="left" bg="white">
-        <Image src={imageSrc} />
-        <div style={{padding: 25}}>
+    <Box textAlign="left" bg="white" p={4} boxShadow="base" borderRadius="md">
+      <Image src={imageSrc} alt={title} />
+      <Box mt={4}>
         <Heading as="h4" size="md" color="black">
           {title}
         </Heading>
-        <Text color="black" py='2'>{description}</Text>
-        <Text color='black'fontSize='sm' >See more <FontAwesomeIcon icon={faArrowRight} size="1x" /></Text>
-        </div>
+        <Text color="black" mt={2}>
+          {description}
+        </Text>
+        <Link color="blue.500" fontSize="sm" mt={2} display="inline-block">
+          See more <FontAwesomeIcon icon={faArrowRight} size="1x" />
+        </Link>
       </Box>
-    </>
+    </Box>
   );
 };
 
